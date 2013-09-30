@@ -31,7 +31,7 @@
         });
     }
 
-    var socket = io.connect('http://localhost:3000');
+    var socket = io.connect('http://host');
     socket.on('post', function (data) {
         var row = $('<div class="row"></div>');
         var highlight = $('<div class="highlight"></div>');

@@ -10,7 +10,8 @@ Because I couldn't find anything of the sort. There are a bunch of hosted soluti
 nothing that you could get as a permanent end-point.
 
 # Installing
-Clone the repo, then run `npm install` and `bower install` to install dependencies.
+Clone the repo, then run `npm install` and `bower install` to install dependencies. For now, manually edit the
+`PostBackend.js` file and specify the sockets.io backend URL.
 
 # Running
 Once installed, run with `node app.js`. The default port is `3000`, but can be changed in `config.js`.
