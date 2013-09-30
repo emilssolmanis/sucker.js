@@ -1,0 +1,15 @@
+{
+    "name": "sucker.js",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "3.4.0",
+        "jade": "*",
+        "stylus": "*",
+        "socket.io": "0.9.x",
+        "bower": "1.2.x"
+    }
+}

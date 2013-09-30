@@ -1,0 +1,8 @@
+{
+    "name": "sucker.js",
+    "version": "0.0.1",
+    "dependencies": {
+        "bootstrap": "~3.0.0",
+        "jquery": "~2.0.3"
+    }
+}

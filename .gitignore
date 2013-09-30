@@ -1,0 +1,14 @@
+# node
+node_modules/
+
+# bower managed
+bower_components/
+public/bootstrap
+public/jquery
+
+# Stylus generated
+public/css/*.css
+
+# IDEA
+*.iml
+.idea
