@@ -31,7 +31,7 @@
         });
     }
 
-    var socket = io.connect('http://host');
+    var socket = io.connect('/');
     socket.on('post', function (data) {
         var row = $('<div class="row"></div>');
         var highlight = $('<div class="highlight"></div>');
@@ -42,7 +42,7 @@
         $(code).append(pre);
         $(highlight).append(code);
         $(row).append(highlight);
-        $(row).click(function(p1, p2, p3) {
+        $(row).dblclick(function() {
             $(this).remove();
         });
         $('.content').prepend(row);
