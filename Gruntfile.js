@@ -50,7 +50,8 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-                sourceMap: 'public/js/<%= pkg.name %>.min.map'
+                sourceMap: 'public/js/<%= pkg.name %>.min.map',
+                sourceMappingURL: '/js/<%= pkg.name %>.min.map'
             },
             dist: {
                 files: {
@@ -68,6 +69,10 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            grunt: {
+                files: ['Gruntfile.js'],
+                tasks: ['bower', 'jshint', 'stylus', 'csslint', 'concat', 'cssmin', 'uglify']
+            },
             css: {
                 files: ['assets/css/*.styl'],
                 tasks: ['stylus', 'csslint', 'concat:css', 'cssmin']
