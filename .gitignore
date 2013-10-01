@@ -3,11 +3,11 @@ node_modules/
 
 # bower managed
 bower_components/
-public/bootstrap
-public/jquery
 
-# Stylus generated
-public/css/*.css
+# generated assets
+lib/
+dist/
+public/
 
 # IDEA
 *.iml

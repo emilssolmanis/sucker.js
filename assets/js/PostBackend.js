@@ -1,13 +1,5 @@
-/**
- * Created with IntelliJ IDEA.
- * User: thechosenone
- * Date: 9/30/13
- * Time: 5:53 PM
- * To change this template use File | Settings | File Templates.
- */
-
-"use strict";
 (function(window) {
+    "use strict";
     var io = window.io;
     var $ = window.$;
 

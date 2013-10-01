@@ -1,7 +1,3 @@
-/**
- * Module dependencies.
- */
-
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
@@ -12,8 +8,6 @@ var config = require('./config');
 var app = express();
 var server = http.createServer(app);
 io = io.listen(server);
-// default to ERROR
-io.set('log level', 0);
 
 // all environments
 app.set('port', process.env.PORT || config.port);
@@ -31,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'public/bootstrap/dist')));
 // development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
+} else if ('production' === app.get('env')) {
+    io.set('log level', 0);
 }
 
 server.listen(app.get('port'), function() {
