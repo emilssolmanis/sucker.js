@@ -2,6 +2,7 @@
     "use strict";
     var io = window.io;
     var $ = window.$;
+    var Sucker = window.Sucker;
 
     // see http://stackoverflow.com/questions/4810841/json-pretty-print-using-javascript
     function syntaxHighlight(json) {
@@ -24,6 +25,9 @@
     }
 
     var socket = io.connect('/');
+    socket.on('connection', function(data) {
+        socket.emit('setRoom', { room: Sucker.room });
+    });
     socket.on('post', function (data) {
         var row = $('<div class="row"></div>');
         var highlight = $('<div class="highlight"></div>');

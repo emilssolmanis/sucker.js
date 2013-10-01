@@ -33,11 +33,46 @@ server.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-app.get('/', routes.index);
-app.post('/', function(req, res) {
-    io.sockets.emit('post', {
-        headers: req.headers,
-        data: req.body
+var rooms = {};
+
+io.sockets.on('connection', function(socket) {
+    socket.emit('connection');
+    socket.on('setRoom', function(data) {
+        if (!(data.room in rooms)) {
+            rooms[data.room] = [];
+        }
+        rooms[data.room].push(socket);
     });
-    res.send(200);
+});
+
+app.get('/', routes.index);
+
+app.get('/:room', routes.room);
+
+app.post('/:room', function(req, res) {
+    var room = req.params.room;
+    if (room in rooms) {
+        rooms[req.params.room].forEach(function(socket) {
+            socket.emit('post', {
+                headers: req.headers,
+                body: req.body
+            });
+        });
+        res.send(200);
+    } else {
+        res.send(404);
+    }
+});
+
+app.delete('/:room', function(req, res) {
+    var room = req.params.room;
+    if (room in rooms) {
+        rooms[req.params.room].forEach(function(socket) {
+            socket.disconnect();
+        });
+        delete rooms[room];
+        res.send(200);
+    } else {
+        res.send(404);
+    }
 });

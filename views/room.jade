@@ -1,0 +1,11 @@
+extends layout
+
+block includes
+  script(type='text/javascript').
+    window.Sucker = { room: "#{room}" };
+  script(src='/js/sucker.min.js', type='text/javascript')
+
+block content
+  h1 #{title} : #{room}
+  div.content
+

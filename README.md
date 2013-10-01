@@ -16,6 +16,13 @@ Then run `npm install` and `grunt` to install dependencies and build assets.
 # Running
 Once installed, run with `node app.js`. The default port is `3000`, but can be changed in `config.js`.
 
+Visiting `/` gives a brief explanation of what this is.
+
+To create a room, visit any arbitrary `/your-room-url`. The room gets created and you can start sending `POST` requests
+to it. All received requests will be broadcast to anyone currently listening to the room.
+
+To destroy a room, currently send a `DELETE` request to the room's URL.
+
 # License
 
  Copyright 2013 Emils Solmanis
